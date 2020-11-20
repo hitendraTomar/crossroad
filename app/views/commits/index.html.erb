@@ -1,25 +1,27 @@
 
-<h1>Listing Commits</h1>
 
-<table>
-  <tr>
-    <th>Message</th>
-    <th>Commiter Name</th>
-    <th>Commiter email</th>
-    <th>Author Name</th>
-    <th>Author email</th>
-    <th>Date</th>
-
-  </tr>
-
-  <% @commits.each do |commit| %>
+<h2>Listing Commits</h2>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td><%= link_to commit["commit"]["message"], commit["html_url"]%></td>
-      <td><%= commit["commit"]["committer"]["name"] %></td>
-      <td><%= commit["commit"]["committer"]["email"] %></td>
-      <td><%= commit["commit"]["author"]["name"] %></td>
-      <td><%= commit["commit"]["author"]["email"] %></td>
-      <td><%= parse_date(commit["commit"]["committer"]["date"]) %></td>
+      <th>Message</th>
+      <th>Commiter Name</th>
+      <th>Commiter email</th>
+      <th>Author Name</th>
+      <th>Author email</th>
+      <th>Date</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @commits.each do |commit| %>
+      <tr>
+        <td><%= link_to commit["commit"]["message"], commit["html_url"]%></td>
+        <td><%= commit["commit"]["committer"]["name"] %></td>
+        <td><%= commit["commit"]["committer"]["email"] %></td>
+        <td><%= commit["commit"]["author"]["name"] %></td>
+        <td><%= commit["commit"]["author"]["email"] %></td>
+        <td><%= parse_date(commit["commit"]["committer"]["date"]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
