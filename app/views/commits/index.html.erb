@@ -1,0 +1,25 @@
+
+<h1>Listing Commits</h1>
+
+<table>
+  <tr>
+    <th>Message</th>
+    <th>Commiter Name</th>
+    <th>Commiter email</th>
+    <th>Author Name</th>
+    <th>Author email</th>
+    <th>Date</th>
+
+  </tr>
+
+  <% @commits.each do |commit| %>
+    <tr>
+      <td><%= link_to commit["commit"]["message"], commit["html_url"]%></td>
+      <td><%= commit["commit"]["committer"]["name"] %></td>
+      <td><%= commit["commit"]["committer"]["email"] %></td>
+      <td><%= commit["commit"]["author"]["name"] %></td>
+      <td><%= commit["commit"]["author"]["email"] %></td>
+      <td><%= commit["commit"]["committer"]["date"] %></td>
+    </tr>
+  <% end %>
+</table>
